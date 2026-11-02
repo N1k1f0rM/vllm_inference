@@ -5764,13 +5764,15 @@ wheels = [
 [[package]]
 name = "vllm-test"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "fastapi" },
     { name = "httpx" },
     { name = "pydantic" },
+    { name = "pydantic-settings" },
     { name = "sqlalchemy" },
     { name = "streamlit" },
+    { name = "uvicorn" },
     { name = "vllm" },
 ]
 
@@ -5779,8 +5781,10 @@ requires-dist = [
     { name = "fastapi", specifier = ">=0.136.3" },
     { name = "httpx", specifier = ">=0.28.1" },
     { name = "pydantic", specifier = ">=2.14.2" },
+    { name = "pydantic-settings", specifier = ">=2.16.2" },
     { name = "sqlalchemy", specifier = ">=2.1.6" },
     { name = "streamlit", specifier = ">=1.66.1" },
+    { name = "uvicorn", specifier = ">=0.54.0" },
     { name = "vllm", specifier = ">=0.33.0" },
 ]
 
