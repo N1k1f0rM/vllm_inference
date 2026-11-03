@@ -19,5 +19,21 @@ services:
       - facebook/opt-125m
       - --gpu-memory-utilization
       - "0.7"
+    networks: [vllm-net]
+
+  backend:
+    build:
+      context: .
+      dockerfile: app/Dockerfile
+    ports:
+      - "8081:8081"
+    depends_on:
+      - vllm
+    networks: [vllm-net]
+
 volumes:
   huggingface-cache:
+
+networks:
+  vllm-net:
+    driver: bridge
