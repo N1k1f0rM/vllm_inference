@@ -18,3 +18,4 @@ async def create_user(
     repo: Annotated[AsyncSession, Depends(get_user_repo)]
 ):
     return await repo.create()
+
