@@ -10,8 +10,8 @@ class ChatService:
     def __init__(self, repo: Chat):
 
         self.repo = repo
-        self.vllm_url = "http://vllm:8001/v1/chat/completions"
-        self.model_name = os.getenv(MODEL_NAME)
+        self.vllm_url = "http://vllm:8000/v1/chat/completions"
+        self.model_name = os.getenv("MODEL_NAME")
 
 
     async def generate_stream(self, session_id: int, prompt: str):

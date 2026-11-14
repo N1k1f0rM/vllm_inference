@@ -7,7 +7,7 @@ from app.models.chat import Session, Message
 class Chat:
 
     def __init__(self, session: AsyncSession):
-        self.session = AsyncSession
+        self.session = session
 
 
     async def create_session(self, title: str) -> Session:
@@ -20,7 +20,7 @@ class Chat:
 
     async def get_sessions(self) -> List[Session]:
 
-        result = self.session.execute(select(Session).order_by(Session.created_at.desc()))
+        result = await self.session.execute(select(Session).order_by(Session.created_at.desc()))
         return result.scalars().all()
 
 
