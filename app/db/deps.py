@@ -8,6 +8,6 @@ async def get_db() -> AsyncGenerator[AsyncSession, None]:
         try:
             yield sf
             await sf.commit()
-        except:
+        except Exception:
             await sf.rollback()
             raise
