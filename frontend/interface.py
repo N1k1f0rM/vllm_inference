@@ -4,7 +4,8 @@ import uuid
 import os
 
 
-BASE_URL = "http://backend:8081"
+BASE_URL = os.getenv("BACKEND_URL")
+
 
 st.set_page_config(page_title="Chat LLM", layout="wide")
 st.title("🤖 Локальный ChatGPT")

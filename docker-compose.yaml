@@ -16,9 +16,11 @@ services:
               capabilities: [gpu]
     command:
       - --model
-      - Qwen/Qwen2.5-1.5B-Instruct
+      - ${MODEL_NAME}
       - --gpu-memory-utilization
-      - "0.7"
+      - ${GPU_UTILIZATION:-0.7}
+      - --quantization
+      - ${VLLM_QUANTIZATION:-}
     networks: [vllm-net]
     healthcheck:
       test: ["CMD", "curl", "-f", "http://127.0.0.1:8000/health"]
